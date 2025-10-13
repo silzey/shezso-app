@@ -52,7 +52,6 @@ export const generateProducts = (category: { name: string, hint: string, image: 
       category: category.name,
       type: i % 3 === 0 ? 'Sativa' : i % 3 === 1 ? 'Indica' : 'Hybrid',
       thc: Math.floor(Math.random() * 15) + 15,
-      price: Math.floor(Math.random() * 40) + 20,
       description: `A popular ${category.name.toLowerCase()} with a distinct aroma. Known for its potent effects and smooth experience. Perfect for both new and experienced users.`,
       image: realImageUrls[i % realImageUrls.length],
       hint: category.hint || placeholderHint,

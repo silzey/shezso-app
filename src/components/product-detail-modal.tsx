@@ -6,7 +6,6 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Badge } from "@/components/ui/badge";
 import type { Product } from "@/types/product";
 import { Button } from "./ui/button";
-import { useCart } from "@/context/cart-context";
 import { useToast } from "@/hooks/use-toast";
 import { Check } from "lucide-react";
 import Link from "next/link";
@@ -18,41 +17,11 @@ interface ProductDetailModalProps {
 }
 
 export function ProductDetailModal({ product, isOpen, onOpenChange }: ProductDetailModalProps) {
-  const { addToCart } = useCart();
   const { toast } = useToast();
 
   if (!product) {
     return null;
   }
-
-  const handleAddToCart = () => {
-    addToCart(product);
-    toast({
-      title: "Added to cart!",
-      description: (
-        <div className="flex items-start gap-4 mt-2">
-          <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-md">
-            <Image
-              src={product.image}
-              alt={product.name}
-              data-ai-hint={product.hint}
-              fill
-              style={{ objectFit: 'cover' }}
-            />
-          </div>
-          <div className="flex-1">
-            <p className="font-semibold text-foreground">{product.name}</p>
-            {product.price && (
-              <p className="text-sm font-bold text-primary">
-                ${product.price.toFixed(2)}
-              </p>
-            )}
-          </div>
-        </div>
-      ),
-    });
-    onOpenChange(false);
-  };
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
@@ -78,22 +47,12 @@ export function ProductDetailModal({ product, isOpen, onOpenChange }: ProductDet
                     {product.type && <Badge variant="outline">{product.type}</Badge>}
                     {product.thc && <Badge variant="outline">{product.thc}% THC</Badge>}
                 </div>
-                <p className="text-base text-muted-foreground mb-4">{product.description}</p>
+                <p className="text-base text-muted-foreground mb-4 flex-grow">{product.description}</p>
                 
-                <div className="mt-auto flex flex-wrap items-center justify-between gap-4 border-t pt-4">
-                    {product.price && (
-                        <p className="text-2xl font-bold text-primary">
-                            ${product.price.toFixed(2)}
-                        </p>
-                    )}
-                    <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
-                        <Button variant="outline" onClick={() => onOpenChange(false)} className="rounded-full">
-                            Keep Browsing
-                        </Button>
-                        <Button onClick={handleAddToCart} className="text-foreground">
-                            Add to Cart
-                        </Button>
-                    </div>
+                <div className="mt-auto flex flex-wrap items-center justify-end gap-4 border-t pt-4">
+                    <Button variant="outline" onClick={() => onOpenChange(false)} className="rounded-full">
+                        Close
+                    </Button>
                 </div>
             </div>
         </div>

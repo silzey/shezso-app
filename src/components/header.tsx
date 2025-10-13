@@ -1,11 +1,9 @@
 
 'use client';
 
-import { Leaf, ShoppingCart, User, LogOut, LayoutGrid } from "lucide-react";
+import { Leaf, User, LogOut, LayoutGrid } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { useCart } from "@/context/cart-context";
-import { Badge } from "@/components/ui/badge";
 import { useUser, useAuth } from '@/firebase';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useTheme } from "next-themes";
@@ -23,7 +21,6 @@ import { useRouter } from "next/navigation";
 
 
 export function Header() {
-  const { totalItems, setCartOpen } = useCart();
   const { user } = useUser();
   const { setTheme, theme } = useTheme();
   const auth = useAuth();
@@ -73,14 +70,6 @@ export function Header() {
             <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             <span className="sr-only">Toggle theme</span>
-          </Button>
-
-          <Button variant="ghost" size="icon" className="relative" onClick={() => setCartOpen(true)}>
-            {totalItems > 0 && (
-              <Badge variant="destructive" className="absolute -top-1 -right-1 h-5 w-5 justify-center p-0">{totalItems}</Badge>
-            )}
-            <ShoppingCart className="h-5 w-5" />
-            <span className="sr-only">Cart</span>
           </Button>
 
           <div className="hidden md:flex">

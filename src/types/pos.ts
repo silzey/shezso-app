@@ -134,7 +134,6 @@ export interface TransactionItem {
   id: string;
   name: string;
   qty: number;
-  price: number;
 }
 
 export interface ReelConfigItem {

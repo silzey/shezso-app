@@ -18,12 +18,10 @@ import { useToast } from '@/hooks/use-toast';
 import { allProductsFlat } from '@/lib/products';
 import { mockCustomers } from '@/lib/mockCustomers';
 import type { Product } from '@/types/product';
-import type { UserProfile, CartItem } from '@/types/pos';
+import type { UserProfile } from '@/types/pos';
 import { Skeleton } from '@/components/ui/skeleton';
 import { signOut } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
-
-const POS_PENDING_ORDERS_STORAGE_KEY = 'posPendingOrdersSilzey';
 
 // In a real app, customers would be fetched from a database.
 const customers: UserProfile[] = mockCustomers;
@@ -40,7 +38,6 @@ export default function BudtenderPOSPage() {
 
     // State Management
     const [searchTerm, setSearchTerm] = useState('');
-    const [cart, setCart] = useState<CartItem[]>([]);
     const [activeCustomer, setActiveCustomer] = useState<UserProfile | null>(null);
 
     useEffect(() => {
@@ -67,74 +64,6 @@ export default function BudtenderPOSPage() {
         if (!searchTerm) return allProductsFlat.slice(0, 50); // Limit initial display
         return allProductsFlat.filter(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()));
     }, [searchTerm]);
-
-    const subtotal = useMemo(() => cart.reduce((acc, item) => acc + (item.price || 0) * item.quantity, 0), [cart]);
-    const tax = subtotal * 0.15; // Mock 15% tax
-    const total = subtotal + tax;
-
-    // Handlers
-    const addToCart = (product: Product) => {
-        setCart(prevCart => {
-            const existingItem = prevCart.find(item => item.id === product.id);
-            if (existingItem) {
-                return prevCart.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item);
-            }
-            return [...prevCart, { ...product, quantity: 1 }];
-        });
-    };
-
-    const updateQuantity = (productId: string, delta: number) => {
-        setCart(prevCart => {
-            const item = prevCart.find(i => i.id === productId);
-            if (item && item.quantity + delta <= 0) {
-                return prevCart.filter(i => i.id !== productId);
-            }
-            return prevCart.map(i => i.id === productId ? { ...i, quantity: i.quantity + delta } : i);
-        });
-    };
-
-    const clearCart = () => setCart([]);
-
-    const handleCheckout = () => {
-        if (!isClient) return;
-        if (cart.length === 0) {
-            toast({ title: 'Cart is empty', description: 'Add products to the cart before checkout.', variant: 'destructive' });
-            return;
-        }
-        if (!activeCustomer) {
-            toast({ title: 'No Customer Selected', description: 'Please select a customer before checking out.', variant: 'destructive' });
-            return;
-        }
-
-        try {
-            const newOrder = {
-                id: `ORD-POS-${Date.now()}`,
-                customerName: `${activeCustomer.firstName} ${activeCustomer.lastName}`,
-                customerId: activeCustomer.id,
-                orderDate: new Date().toISOString(),
-                itemCount: cart.reduce((sum, item) => sum + item.quantity, 0),
-                items: cart,
-                totalAmount: total,
-                status: 'Pending Checkout' as const,
-                submittedByPOS: true,
-            };
-            
-            const pendingOrdersRaw = localStorage.getItem(POS_PENDING_ORDERS_STORAGE_KEY);
-            let pendingOrders = pendingOrdersRaw ? JSON.parse(pendingOrdersRaw) : [];
-            
-            pendingOrders.push(newOrder);
-            localStorage.setItem(POS_PENDING_ORDERS_STORAGE_KEY, JSON.stringify(pendingOrders));
-
-            toast({ 
-                title: 'Order Submitted to Queue', 
-                description: `Order for ${activeCustomer.firstName} sent for processing. Total: $${total.toFixed(2)}` 
-            });
-            clearCart();
-        } catch(e) {
-            console.error("Failed to save pending order:", e);
-            toast({ title: 'Error', description: 'Could not submit order to queue. Check console for details.', variant: 'destructive' });
-        }
-    };
     
     useEffect(() => {
         if (!loading && !user) {
@@ -199,7 +128,6 @@ export default function BudtenderPOSPage() {
                                 <Card 
                                     key={product.id} 
                                     className="cursor-pointer hover:shadow-lg transition-shadow overflow-hidden group bg-card/60 backdrop-blur-sm"
-                                    onClick={() => addToCart(product)}
                                 >
                                     <div className="relative aspect-square">
                                         <Image src={product.image} alt={product.name} fill style={{objectFit: 'cover'}} className="group-hover:scale-105 transition-transform" data-ai-hint={product.hint} />
@@ -214,7 +142,7 @@ export default function BudtenderPOSPage() {
                     </ScrollArea>
                 </div>
 
-                {/* Right Column (Cart & Customer) */}
+                {/* Right Column (Customer) */}
                 <div className="w-full lg:w-96 flex-shrink-0 bg-background/60 backdrop-blur-sm rounded-lg shadow-md flex flex-col h-full">
                     <div className="p-4 border-b">
                         {activeCustomer ? (
@@ -239,52 +167,12 @@ export default function BudtenderPOSPage() {
 
                     <ScrollArea className="flex-1">
                         <div className="p-4 space-y-3">
-                            {cart.length === 0 ? (
-                                <div className="text-center py-10 text-muted-foreground">
-                                    <ShoppingCart className="mx-auto h-10 w-10 mb-2"/>
-                                    <p>Cart is empty</p>
-                                </div>
-                            ) : (
-                                cart.map(item => (
-                                    <div key={item.id} className="flex items-center gap-3">
-                                        <div className="relative h-12 w-12 rounded-md overflow-hidden flex-shrink-0">
-                                            <Image src={item.image} alt={item.name} fill style={{objectFit:'cover'}} data-ai-hint={item.hint} />
-                                        </div>
-                                        <div className="flex-grow">
-                                            <p className="text-sm font-medium truncate">{item.name}</p>
-                                            <p className="text-xs text-muted-foreground">${item.price?.toFixed(2)}</p>
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <Button variant="outline" size="icon" className="h-7 w-7" onClick={() => updateQuantity(item.id, -1)}><Minus className="h-4 w-4"/></Button>
-                                            <span className="w-6 text-center text-sm font-bold">{item.quantity}</span>
-                                            <Button variant="outline" size="icon" className="h-7 w-7" onClick={() => updateQuantity(item.id, 1)}><Plus className="h-4 w-4"/></Button>
-                                        </div>
-                                    </div>
-                                ))
-                            )}
+                            <div className="text-center py-10 text-muted-foreground">
+                                <Leaf className="mx-auto h-10 w-10 mb-2"/>
+                                <p>Select products to view details.</p>
+                            </div>
                         </div>
                     </ScrollArea>
-                    
-                    {cart.length > 0 && (
-                        <div className="p-4 border-t mt-auto space-y-3 bg-background/80 rounded-b-lg">
-                            <div className="flex justify-between text-sm">
-                                <span className="text-muted-foreground">Subtotal</span>
-                                <span>${subtotal.toFixed(2)}</span>
-                            </div>
-                            <div className="flex justify-between text-sm">
-                                <span className="text-muted-foreground">Tax (15%)</span>
-                                <span>${tax.toFixed(2)}</span>
-                            </div>
-                            <Separator />
-                            <div className="flex justify-between text-lg font-bold">
-                                <span>Total</span>
-                                <span>${total.toFixed(2)}</span>
-                            </div>
-                            <Button className="w-full h-12 text-lg" size="lg" onClick={handleCheckout} disabled={cart.length === 0 || !activeCustomer}>
-                                <DollarSign className="mr-2 h-5 w-5" /> Charge ${total.toFixed(2)}
-                            </Button>
-                        </div>
-                    )}
                 </div>
 
             </main>

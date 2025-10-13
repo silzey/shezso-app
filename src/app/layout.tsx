@@ -2,9 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { Inter } from "next/font/google";
-import { Providers } from "./providers";
 import { ThemeProvider } from "@/components/theme-provider";
-import { CartSheet } from "@/components/cart-sheet";
 import { FirebaseClientProvider } from "@/firebase";
 import { cn } from "@/lib/utils";
 
@@ -73,11 +71,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={cn("antialiased", inter.variable)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <FirebaseClientProvider>
-            <Providers>
               {children}
               <Toaster />
-              <CartSheet />
-            </Providers>
           </FirebaseClientProvider>
         </ThemeProvider>
       </body>
