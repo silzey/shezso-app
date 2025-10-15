@@ -1,7 +1,7 @@
 
 import type { Product } from "@/types/product";
 
-const placeholderHint = 'cannabis product';
+const placeholderHint = 'beauty product';
 
 export const realImageUrls: string[] = [
     "https://images.pexels.com/photos/7667737/pexels-photo-7667737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
@@ -23,25 +23,34 @@ export const realImageUrls: string[] = [
 ];
 
 export const categories = [
-  { name: 'Pre-rolls', hint: 'cannabis joint', image: 'https://images.pexels.com/photos/8139067/pexels-photo-8139067.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Flower', hint: 'cannabis bud', image: 'https://images.pexels.com/photos/7667737/pexels-photo-7667737.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Medical', hint: 'medical cannabis', image: 'https://images.pexels.com/photos/7667711/pexels-photo-7667711.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Edibles', hint: 'gummy candy', image: 'https://images.pexels.com/photos/7667727/pexels-photo-7667727.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Concentrates', hint: 'cannabis oil', image: 'https://images.pexels.com/photos/7667746/pexels-photo-7667746.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Tinctures', hint: 'dropper bottle', image: 'https://images.pexels.com/photos/7667717/pexels-photo-7667717.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Topicals', hint: 'cream jar', image: 'https://images.pexels.com/photos/7667723/pexels-photo-7667723.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Vapes', hint: 'vape pen', image: 'https://images.pexels.com/photos/8464972/pexels-photo-8464972.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Gear', hint: 'grinder accessory', image: 'https://images.pexels.com/photos/7938367/pexels-photo-7938367.jpeg?auto=compress&cs=tinysrgb&w=400' },
-  { name: 'Deals', hint: 'sale tag', image: 'https://images.pexels.com/photos/7733470/pexels-photo-7733470.jpeg?auto=compress&cs=tinysrgb&w=400' },
+    { name: 'Foundation', hint: 'foundation makeup', image: 'https://picsum.photos/seed/foundation/400/400' },
+    { name: 'Lipstick', hint: 'lipstick tube', image: 'https://picsum.photos/seed/lipstick/400/400' },
+    { name: 'Blush', hint: 'blush powder', image: 'https://picsum.photos/seed/blush/400/400' },
+    { name: 'Concealer', hint: 'concealer stick', image: 'https://picsum.photos/seed/concealer/400/400' },
+    { name: 'Eyeliner', hint: 'eyeliner pencil', image: 'https://picsum.photos/seed/eyeliner/400/400' },
+    { name: 'Mascara', hint: 'mascara wand', image: 'https://picsum.photos/seed/mascara/400/400' },
+    { name: 'Brushes', hint: 'makeup brushes', image: 'https://picsum.photos/seed/brushes/400/400' },
+    { name: 'Yoga', hint: 'yoga pose', image: 'https://picsum.photos/seed/yoga/400/400' },
+    { name: 'Health', hint: 'healthy food', image: 'https://picsum.photos/seed/health/400/400' },
+    { name: 'Dieting', hint: 'fresh salad', image: 'https://picsum.photos/seed/dieting/400/400' },
+    { name: 'Relaxation', hint: 'calm meditation', image: 'https://picsum.photos/seed/relaxation/400/400' },
+    { name: 'Shoes', hint: 'stylish shoes', image: 'https://picsum.photos/seed/shoes/400_400' },
+    { name: 'Dresses', hint: 'elegant dress', image: 'https://picsum.photos/seed/dresses/400/400' },
+    { name: 'Skirts', hint: 'flowing skirt', image: 'https://picsum.photos/seed/skirts/400/400' },
+    { name: 'Accessories', hint: 'fashion accessories', image: 'https://picsum.photos/seed/accessories/400/400' },
+    { name: 'Women\'s Health', hint: 'woman meditating', image: 'https://picsum.photos/seed/womenshealth/400/400' },
+    { name: 'Self Love', hint: 'happy person', image: 'https://picsum.photos/seed/selflove/400/400' },
+    { name: 'Career', hint: 'professional woman', image: 'https://picsum.photos/seed/career/400/400' },
+    { name: 'Motherhood', hint: 'mother child', image: 'https://picsum.photos/seed/motherhood/400/400' },
 ];
 
 
 export const generateProducts = (category: { name: string, hint: string, image: string }, count: number): Product[] => {
   const products: Product[] = [];
   const productNames = [
-    'OG Kush', 'Blue Dream', 'Sour Diesel', 'Girl Scout Cookies', 'Granddaddy Purple',
-    'White Widow', 'Jack Herer', 'Northern Lights', 'Pineapple Express', 'AK-47',
-    'Bubba Kush', 'Durban Poison', 'Chemdawg', 'Green Crack', 'Maui Wowie'
+    'Radiant Glow', 'Silk Finish', 'Velvet Touch', 'Pure Elegance', 'Natural Charm',
+    'Morning Dew', 'Sun Kissed', 'Evening Star', 'Urban Decay', 'Lush Life',
+    'Modern Muse', 'Classic Beauty', 'Boho Chic', 'Glamour Queen', 'Minimalist'
   ];
 
   for (let i = 0; i < count; i++) {
@@ -50,9 +59,7 @@ export const generateProducts = (category: { name: string, hint: string, image: 
       id: `${category.name.slice(0,3).toUpperCase()}${i}`,
       name: name,
       category: category.name,
-      type: i % 3 === 0 ? 'Sativa' : i % 3 === 1 ? 'Indica' : 'Hybrid',
-      thc: Math.floor(Math.random() * 15) + 15,
-      description: `A popular ${category.name.toLowerCase()} with a distinct aroma. Known for its potent effects and smooth experience. Perfect for both new and experienced users.`,
+      description: `A popular ${category.name.toLowerCase()} with a distinct feel. Known for its quality and smooth application. Perfect for both new and experienced users.`,
       image: realImageUrls[i % realImageUrls.length],
       hint: category.hint || placeholderHint,
       stock: Math.floor(Math.random() * 100),
@@ -62,3 +69,4 @@ export const generateProducts = (category: { name: string, hint: string, image: 
   }
   return products;
 };
+
