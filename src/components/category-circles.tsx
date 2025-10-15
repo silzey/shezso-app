@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import type { Product } from '@/types/product';
 import { categories } from '@/lib/products';
+import { cn } from '@/lib/utils';
 
 interface CategoryCirclesProps {
   onProductClick: (product: Product) => void;
@@ -9,17 +10,11 @@ interface CategoryCirclesProps {
 
 export function CategoryCircles({ onProductClick }: CategoryCirclesProps) {
   const handleClick = (category: typeof categories[0]) => {
-    if (category.name === 'Coming Soon') {
-      return;
-    }
     const representativeProduct: Product = {
-      id: `cat-${category.name.toLowerCase().replace(' ', '-')}`,
+      id: `cat-${category.name.toLowerCase().replace(/\\s/g, '-')}`,
       name: `Featured ${category.name}`,
       category: category.name,
-      type: 'Hybrid',
-      thc: 20,
-      price: 45.00,
-      description: `A fine selection of our best ${category.name.toLowerCase()}. Click 'Add to Cart' to explore similar products from this category.`,
+      description: `A fine selection of our best ${category.name.toLowerCase()}. Click 'View' to explore similar products from this category.`,
       image: category.image,
       hint: category.hint,
     };
@@ -29,29 +24,21 @@ export function CategoryCircles({ onProductClick }: CategoryCirclesProps) {
   return (
     <div className="overflow-x-auto no-scrollbar">
       <div className="flex px-4 md:px-6 space-x-4 pb-4">
-          {categories.map((category) => (
-            <button
-              key={category.name}
-              onClick={() => handleClick(category)}
-              className="flex flex-col items-center space-y-2 flex-shrink-0 w-28 group text-center focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={category.name === 'Coming Soon'}
-            >
-              <div className="relative w-[98px] h-[98px] transition-all duration-300">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-400 to-red-500"></div>
-                <div className="absolute inset-0.5 bg-card rounded-full"></div>
-                <div className="absolute inset-1 rounded-full overflow-hidden">
-                  <Image
-                      src={category.image}
-                      data-ai-hint={category.hint}
-                      alt={category.name}
-                      fill
-                      style={{objectFit: 'cover'}}
-                  />
+          {categories.map((category) => {
+            const Icon = category.icon;
+            return (
+                <button
+                key={category.name}
+                onClick={() => handleClick(category)}
+                className="flex flex-col items-center space-y-2 flex-shrink-0 w-28 group text-center focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                <div className="relative w-[98px] h-[98px] rounded-full liquid-glass flex items-center justify-center">
+                    <Icon className="h-12 w-12 text-primary" />
                 </div>
-              </div>
-              <p className="text-xs font-medium text-foreground">{category.name}</p>
-            </button>
-          ))}
+                <p className="text-xs font-medium text-foreground">{category.name}</p>
+                </button>
+            )
+          })}
       </div>
     </div>
   );
