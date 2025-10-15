@@ -69,4 +69,3 @@ export const generateProducts = (category: { name: string, hint: string, image: 
   }
   return products;
 };
-
