@@ -63,7 +63,7 @@ export const categories: { name: string; hint: string; icon: LucideIcon | React.
     { name: 'Dresses', hint: 'elegant dress', icon: Shirt, image: 'https://picsum.photos/seed/dresses/400/400' },
     { name: 'Skirts', hint: 'flowing skirt', icon: SkirtIcon, image: 'https://picsum.photos/seed/skirts/400/400' },
     { name: 'Accessories', hint: 'fashion accessories', icon: Sparkles, image: 'https://picsum.photos/seed/accessories/400/400' },
-    { name: 'Women\'s Health', hint: 'woman meditating', icon: HandHeart, image: 'https://picsum.photos/seed/womenshealth/400/400' },
+    { name: "Women's Health", hint: 'woman meditating', icon: HandHeart, image: 'https://picsum.photos/seed/womenshealth/400/400' },
     { name: 'Self Love', hint: 'happy person', icon: HandHeart, image: 'https://picsum.photos/seed/selflove/400/400' },
     { name: 'Career', hint: 'professional woman', icon: Briefcase, image: 'https://picsum.photos/seed/career/400/400' },
     { name: 'Motherhood', hint: 'mother child', icon: Baby, image: 'https://picsum.photos/seed/motherhood/400/400' },
