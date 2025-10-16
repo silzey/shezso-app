@@ -13,6 +13,21 @@ import {
   ShoppingBag,
   Tag,
   type LucideProps,
+  PaintBucket,
+  Palette,
+  Eye,
+  Brush,
+  PersonStanding,
+  HeartPulse,
+  Scale,
+  Sofa,
+  Footprints,
+  Shirt,
+  ShoppingBasket,
+  HeartHandshake,
+  Briefcase,
+  Baby,
+  Sparkles,
 } from 'lucide-react';
 import type { Product } from '@/types/product';
 
@@ -35,17 +50,27 @@ export const realImageUrls = [
 ];
 
 export const categories = [
-    { name: 'Flower', icon: Flower },
-    { name: 'Concentrates', icon: FlaskConical },
-    { name: 'Vapes', icon: Bot },
-    { name: 'Edibles', icon: Tablet },
-    { name: 'Pre-rolls', icon: Cigarette },
-    { name: 'Medical', icon: Stethoscope },
-    { name: 'Tinctures', icon: Droplets },
-    { name: 'Topicals', icon: SprayCan },
-    { name: 'Gear', icon: ShoppingBag },
-    { name: 'Deals', icon: Tag },
+    { name: 'Foundation', icon: PaintBucket },
+    { name: 'Lipstick', icon: Palette },
+    { name: 'Blush', icon: Sparkles },
+    { name: 'Concealer', icon: Sparkles },
+    { name: 'Eyeliner', icon: Eye },
+    { name: 'Mascara', icon: Eye },
+    { name: 'Brushes', icon: Brush },
+    { name: 'Yoga', icon: PersonStanding },
+    { name: 'Health', icon: HeartPulse },
+    { name: 'Dieting', icon: Scale },
+    { name: 'Relaxation', icon: Sofa },
+    { name: 'Shoes', icon: Footprints },
+    { name: 'Dresses', icon: Shirt },
+    { name: 'Skirts', icon: Shirt },
+    { name: 'Accessories', icon: ShoppingBasket },
+    { name: 'Women\'s Health', icon: HeartPulse },
+    { name: 'Self Love', icon: HeartHandshake },
+    { name: 'Career', icon: Briefcase },
+    { name: 'Motherhood', icon: Baby },
 ];
+
 
 export const generateProducts = (category: { name: string; icon: React.ComponentType<LucideProps>; }, count: number): Product[] => {
   const products: Product[] = [];
