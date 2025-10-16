@@ -1,5 +1,5 @@
 
-'use client';
+'use-client';
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -105,7 +105,7 @@ export default function BudtenderPOSPage() {
     }
 
     return (
-        <div className="flex flex-col h-screen bg-muted/40 font-sans">
+        <div className="flex flex-col min-h-screen bg-muted/40 font-sans">
             <Header />
             <main className="flex-grow flex flex-col lg:flex-row container mx-auto px-2 sm:px-4 md:px-6 py-4 md:py-8 gap-4 md:gap-8 overflow-hidden">
                 

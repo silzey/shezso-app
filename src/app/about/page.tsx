@@ -44,7 +44,7 @@ const features = [
 export default function AboutPage() {
   return (
     <>
-      <div className="flex flex-col min-h-screen bg-transparent">
+      <div className="flex flex-col min-h-screen bg-muted/40">
         <Header />
         <main className="flex-grow container mx-auto px-4 py-8 pt-24 md:pt-12">
           <div className="text-center mb-12">

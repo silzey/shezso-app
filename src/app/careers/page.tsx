@@ -18,7 +18,7 @@ export default function CareersPage() {
     <div className="flex flex-col min-h-screen bg-muted/40">
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
-         <div className="space-y-8 text-center">
+         <div className="space-y-8 text-center pt-16 md:pt-0">
             <section>
                 <h1 className="text-4xl md:text-5xl font-bold font-cursive text-primary mb-4">Join Our Team</h1>
                 <p className="max-w-3xl mx-auto text-lg text-muted-foreground">

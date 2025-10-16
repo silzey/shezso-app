@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Header } from "@/components/header";
@@ -9,7 +10,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-muted/40">
       <Header />
       <main className="flex-grow flex items-center justify-center text-center px-4">
         <div className="space-y-4">
