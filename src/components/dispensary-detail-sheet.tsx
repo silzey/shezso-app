@@ -179,8 +179,6 @@ export function DispensaryDetailSheet({ dispensary, isOpen, onOpenChange }: Disp
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const { user } = useUser();
   const { toast } = useToast();
-  const vh = useViewportHeight();
-  useMobileViewportFix();
   
   const [reviews, setReviews] = useState<Review[]>([]);
 
@@ -319,8 +317,8 @@ export function DispensaryDetailSheet({ dispensary, isOpen, onOpenChange }: Disp
     <>
     <Sheet open={isOpen && !activeSheet} onOpenChange={onOpenChange}>
       <SheetContent 
+        side="right"
         className="p-0 w-full md:max-w-md flex flex-col bg-blue-900/10 backdrop-blur-xl border-border/20"
-        style={{ height: vh ? `${vh}px` : '100dvh' }}
         >
         <ScrollArea className="flex-1" ref={scrollAreaRef}>
           <SheetHeader className="p-0 relative h-48">
@@ -465,3 +463,5 @@ export function DispensaryDetailSheet({ dispensary, isOpen, onOpenChange }: Disp
     </>
   );
 }
+
+    
