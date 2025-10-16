@@ -5,32 +5,32 @@ import { HeroSliderScript, type Slide } from './ui/HeroSliderScript';
 
 const defaultSlides: Slide[] = [
   {
-    name: ['Blue', 'Dream'],
-    color: '#3E82C4',
-    image: 'https://images.pexels.com/photos/7773109/pexels-photo-7773109.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    data: ['24%', 'Sativa', 'Berry', 'Uplifting', '0.2%'],
-    dataLabels: ['THC', 'Type', 'Aroma', 'Effect', 'CBD'],
+    name: ['Silky', 'Serum'],
+    color: '#E29578',
+    image: 'https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    data: ['Skincare', 'Serum', 'Organic', 'Nourishing', 'Vegan'],
+    dataLabels: ['Category', 'Type', 'Benefit', 'Benefit', 'Info'],
   },
   {
-    name: ['OG', 'Kush'],
-    color: '#4B8F8C',
-    image: 'https://images.pexels.com/photos/7667739/pexels-photo-7667739.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    data: ['22%', 'Hybrid', 'Earthy', 'Relaxing', '0.3%'],
-    dataLabels: ['THC', 'Type', 'Aroma', 'Effect', 'CBD'],
-  },
-  {
-    name: ['Sour', 'Diesel'],
-    color: '#A0B35D',
-    image: 'https://images.pexels.com/photos/8139067/pexels-photo-8139067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    data: ['26%', 'Sativa', 'Diesel', 'Energizing', '0.1%'],
-    dataLabels: ['THC', 'Type', 'Aroma', 'Effect', 'CBD'],
-  },
-  {
-    name: ['GSC', 'Pre-roll'],
+    name: ['Radiant', 'Glow'],
     color: '#D88A8A',
-    image: 'https://images.pexels.com/photos/7667727/pexels-photo-7667727.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    data: ['20%', 'Indica', 'Sweet', 'Calming', '0.5%'],
-    dataLabels: ['THC', 'Type', 'Aroma', 'Effect', 'CBD'],
+    image: 'https://images.pexels.com/photos/3762881/pexels-photo-3762881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    data: ['New', 'Foundation', 'Lightweight', 'All Day', 'Matte'],
+    dataLabels: ['Tag', 'Type', 'Feel', 'Wear', 'Finish'],
+  },
+  {
+    name: ['Bold', 'Lashes'],
+    color: '#8C7A6B',
+    image: 'https://images.pexels.com/photos/2105453/pexels-photo-2105453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    data: ['Volumizing', 'Mascara', 'Long-Lasting', 'No Clumps', 'Waterproof'],
+    dataLabels: ['Effect', 'Type', 'Wear', 'Benefit', 'Feature'],
+  },
+  {
+    name: ['Velvet', 'Lips'],
+    color: '#A4B494',
+    image: 'https://images.pexels.com/photos/2533618/pexels-photo-2533618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    data: ['Best Seller', 'Lipstick', 'Hydrating', 'Vibrant', 'Cruelty-Free'],
+    dataLabels: ['Tag', 'Type', 'Feature', 'Color', 'Info'],
   },
 ];
 
@@ -52,8 +52,8 @@ export function HeroSlider({ slides = defaultSlides }: HeroSliderProps) {
         <img
           className="product-image"
           src={initialSlide.image}
-          alt="Cannabis Product"
-          data-ai-hint="cannabis flower"
+          alt="Beauty Product or Model"
+          data-ai-hint="beauty fashion"
         />
         <div className="data-panel">
           {initialSlide.data.map((value, index) => (
