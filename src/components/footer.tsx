@@ -1,5 +1,5 @@
 
-import { Leaf } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
@@ -9,20 +9,20 @@ export function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <Leaf className="h-6 w-6 text-primary" />
+              <Sparkles className="h-6 w-6 text-primary" />
               <span className="text-xl font-semibold text-foreground">
-                GreenLeaf Guide
+                Shezso
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground">Your friendly guide to cannabis.</p>
+            <p className="text-sm text-muted-foreground">Your friendly guide to beauty.</p>
           </div>
           <div>
             <h4 className="font-semibold mb-3">Shop</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/#menu" className="text-muted-foreground hover:text-primary">Flower</Link></li>
-              <li><Link href="/#menu" className="text-muted-foreground hover:text-primary">Edibles</Link></li>
-              <li><Link href="/#menu" className="text-muted-foreground hover:text-primary">Vapes</Link></li>
-              <li><Link href="/#menu" className="text-muted-foreground hover:text-primary">Concentrates</Link></li>
+              <li><Link href="/#menu" className="text-muted-foreground hover:text-primary">Foundation</Link></li>
+              <li><Link href="/#menu" className="text-muted-foreground hover:text-primary">Lipstick</Link></li>
+              <li><Link href="/#menu" className="text-muted-foreground hover:text-primary">Mascara</Link></li>
+              <li><Link href="/#menu" className="text-muted-foreground hover:text-primary">Skincare</Link></li>
             </ul>
           </div>
           <div>
@@ -42,8 +42,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} GreenLeaf Guide. All Rights Reserved.</p>
-          <p className="mt-2">For use only by adults 21 years of age and older. Keep out of reach of children.</p>
+          <p>&copy; {new Date().getFullYear()} Shezso. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

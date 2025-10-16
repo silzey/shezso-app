@@ -8,7 +8,7 @@ import { doc, setDoc } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { Leaf, Github, AlertTriangle } from 'lucide-react';
+import { Sparkles, Github, AlertTriangle } from 'lucide-react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import type { User as NewUser } from '@/types/user';
@@ -145,7 +145,7 @@ export default function LoginPage() {
         <Header />
         <main className="flex-grow flex items-center justify-center bg-muted">
           <div className="flex flex-col items-center gap-4 text-muted-foreground">
-            <Leaf className="h-12 w-12 animate-spin text-blue-500" />
+            <Sparkles className="h-12 w-12 animate-spin text-primary" />
             <span>Authenticating...</span>
           </div>
         </main>

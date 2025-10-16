@@ -12,23 +12,23 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
-const title = "GreenLeaf Guide | Local Dispensary Finder & Cannabis Deals";
+const title = "Shezso | Local Cosmetics Finder & Beauty Deals";
 const description =
-  "Explore top-rated dispensaries in your area for delivery and pickup. GreenLeaf Guide is your ultimate cannabis marketplace to find reviews, the latest info, and unbeatable deals.";
+  "Explore top-rated beauty brands and products in your area. Shezso is your ultimate cosmetics marketplace to find reviews, the latest info, and unbeatable deals.";
 const url = "https://dispensary-13773344-54196.web.app";
 
 export const metadata: Metadata = {
   title,
   description,
   keywords: [
-    "dispensary finder",
-    "cannabis delivery",
-    "local dispensaries",
-    "cannabis reviews",
-    "dispensary deals",
-    "cannabis marketplace",
-    "weed pickup",
-    "marijuana deals",
+    "cosmetics finder",
+    "beauty delivery",
+    "local beauty stores",
+    "makeup reviews",
+    "beauty deals",
+    "cosmetics marketplace",
+    "skincare",
+    "makeup deals",
   ],
   metadataBase: new URL(url),
   manifest: "/manifest.json",
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
     title,
     description,
     url,
-    siteName: "GreenLeaf Guide",
+    siteName: "Shezso",
     images: [
       {
         url: '/favicon.png', // Relative URL to public folder
         width: 512,
         height: 512,
-        alt: "GreenLeaf Guide - Dispensary Marketplace",
+        alt: "Shezso - Cosmetics Marketplace",
       },
     ],
     locale: "en_US",

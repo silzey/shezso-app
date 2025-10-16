@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Search, X, Plus, Minus, User, ShoppingCart, DollarSign, Leaf } from 'lucide-react';
+import { Search, X, Plus, Minus, User, ShoppingCart, DollarSign, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -83,7 +83,7 @@ export default function BudtenderPOSPage() {
             <Header />
             <main className="flex-grow flex items-center justify-center bg-muted">
                 <div className="flex flex-col items-center gap-4">
-                    <Leaf className="h-12 w-12 text-primary animate-spin" />
+                    <Sparkles className="h-12 w-12 text-primary animate-spin" />
                     <p className="text-muted-foreground">Loading POS...</p>
                 </div>
             </main>
@@ -168,7 +168,7 @@ export default function BudtenderPOSPage() {
                     <ScrollArea className="flex-1">
                         <div className="p-4 space-y-3">
                             <div className="text-center py-10 text-muted-foreground">
-                                <Leaf className="mx-auto h-10 w-10 mb-2"/>
+                                <Sparkles className="mx-auto h-10 w-10 mb-2"/>
                                 <p>Select products to view details.</p>
                             </div>
                         </div>

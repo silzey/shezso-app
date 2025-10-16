@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Leaf, User, LogOut, LayoutGrid } from "lucide-react";
+import { Sparkles, User, LogOut, LayoutGrid } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useUser, useAuth } from '@/firebase';
@@ -49,9 +49,9 @@ export function Header() {
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2 group">
-              <Leaf className="h-6 w-6 text-primary" />
+              <Sparkles className="h-6 w-6 text-primary" />
               <span className="text-xl font-semibold text-foreground">
-                GreenLeaf Guide
+                Shezso
               </span>
             </Link>
         </div>
