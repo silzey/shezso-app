@@ -14,7 +14,7 @@ import { Footer } from '@/components/footer';
 import { BottomNavBar } from '@/components/bottom-nav-bar';
 import { allProductsFlat } from '@/lib/products';
 import { StateSearch } from '@/components/state-search';
-import { StateStoryReel } from '@/components/state-story-reel';
+import { CategoryCircles } from '@/components/category-circles';
 import { Skeleton } from '@/components/ui/skeleton';
 
 function MarketplaceSkeleton() {
@@ -126,10 +126,6 @@ function MarketplaceContent() {
     setIsDetailSheetOpen(open);
   };
 
-  const handleProductClick = (product: Product) => {
-    router.push(createQueryString('product', product.id), { scroll: false });
-  };
-
   const closeProductModal = () => {
     router.push(deleteQueryString('product'), { scroll: false });
   };
@@ -143,7 +139,7 @@ function MarketplaceContent() {
         </header>
         
         <div className="mb-8">
-          <StateStoryReel />
+          <CategoryCircles />
         </div>
 
         <div className="container mx-auto px-4 md:px-6 my-8">

@@ -3,43 +3,47 @@ import Image from 'next/image';
 import type { Product } from '@/types/product';
 import { categories } from '@/lib/products';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-interface CategoryCirclesProps {
-  onProductClick: (product: Product) => void;
-}
+interface CategoryCirclesProps {}
 
-export function CategoryCircles({ onProductClick }: CategoryCirclesProps) {
-  const handleClick = (category: typeof categories[0]) => {
-    const representativeProduct: Product = {
-      id: `cat-${category.name.toLowerCase().replace(/\\s/g, '-')}`,
-      name: `Featured ${category.name}`,
-      category: category.name,
-      description: `A fine selection of our best ${category.name.toLowerCase()}. Click 'View' to explore similar products from this category.`,
-      image: category.image,
-      hint: category.hint,
-    };
-    onProductClick(representativeProduct);
-  };
-
+export function CategoryCircles({}: CategoryCirclesProps) {
   return (
-    <div className="overflow-x-auto no-scrollbar">
-      <div className="flex px-4 md:px-6 space-x-4 pb-4">
-          {categories.map((category) => {
-            const Icon = category.icon;
-            return (
-                <button
-                key={category.name}
-                onClick={() => handleClick(category)}
-                className="flex flex-col items-center space-y-2 flex-shrink-0 w-28 group text-center focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                <div className="relative w-[98px] h-[98px] rounded-full liquid-glass flex items-center justify-center">
-                    <Icon className="h-12 w-12 text-primary" />
-                </div>
-                <p className="text-xs font-medium text-foreground">{category.name}</p>
-                </button>
-            )
-          })}
-      </div>
-    </div>
+     <section className="py-8 md:py-12 space-y-4 bg-transparent">
+        <div className="overflow-x-auto no-scrollbar">
+            <ul className="flex items-start gap-4 px-4 md:px-6 pb-4 pt-2">
+                {categories.map((category, i) => {
+                    const Icon = category.icon;
+                    return (
+                    <motion.li 
+                        key={category.name} 
+                        className="flex-shrink-0"
+                        animate={{
+                            y: [0, -5, 0],
+                            scale: [1, 1.02, 1],
+                        }}
+                        transition={{
+                            duration: 3 + i * 0.2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        }}
+                    >
+                        <Link 
+                            href={`/menu/all#${category.name.toLowerCase().replace(/\\s/g, '-')}`}
+                            className="flex flex-col items-center space-y-2 w-28 group text-center focus:outline-none"
+                        >
+                           <div className="relative w-[98px] h-[98px] rounded-full liquid-glass">
+                                <div className="absolute inset-0 rounded-full p-1 flex items-center justify-center">
+                                    <Icon />
+                                </div>
+                            </div>
+                            <p className="text-xs font-medium text-foreground truncate w-full text-center">{category.name}</p>
+                        </Link>
+                    </motion.li>
+                )})}
+            </ul>
+        </div>
+    </section>
   );
 }

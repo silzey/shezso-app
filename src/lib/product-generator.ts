@@ -26,25 +26,25 @@ export const realImageUrls: string[] = [
 ];
 
 const FoundationIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l-4.37-4.37a2 2 0 0 1 0-2.82L4.8 1.21a2 2 0 0 1 2.82 0L9 2.4l1.59-1.59a2 2 0 0 1 2.82 0l1.18 1.18a2 2 0 0 1 0 2.82zM11 10.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM14 7l-1.5 1.5-1.12-1.12a2 2 0 0 0-2.83 0L7 9l-1.5 1.5"/><path d="M12 22v-5"/><path d="M8.5 17h7"/><path d="M12 17a5 5 0 0 0-5 5v0h10v0a5 5 0 0 0-5-5z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l-4.37-4.37a2 2 0 0 1 0-2.82L4.8 1.21a2 2 0 0 1 2.82 0L9 2.4l1.59-1.59a2 2 0 0 1 2.82 0l1.18 1.18a2 2 0 0 1 0 2.82zM11 10.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM14 7l-1.5 1.5-1.12-1.12a2 2 0 0 0-2.83 0L7 9l-1.5 1.5" /><path d="M12 22v-5" /><path d="M8.5 17h7" /><path d="M12 17a5 5 0 0 0-5 5v0h10v0a5 5 0 0 0-5-5z" /></svg>
 );
 const LipstickIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8.5 10.5c.6-1.1 1.5-2.2 2.5-3 .9-.7 2-.7 2.9 0 1 .8 1.9 1.9 2.5 3 .5 1 .5 2.1 0 3.1-.6 1.1-1.5 2.2-2.5 3-.9.7-2 .7-2.9 0-1-.8-1.9-1.9-2.5-3-.5-1-.5-2.1 0-3.1Z"/><path d="m7.5 15.5 2-2"/><path d="m14.5 8.5 2-2"/><path d="M9 22v-3.5c0-.8.7-1.5 1.5-1.5h3c.8 0 1.5.7 1.5 1.5V22"/><path d="M7 22h10"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8.5 10.5c.6-1.1 1.5-2.2 2.5-3 .9-.7 2-.7 2.9 0 1 .8 1.9 1.9 2.5 3 .5 1 .5 2.1 0 3.1-.6 1.1-1.5 2.2-2.5 3-.9.7-2 .7-2.9 0-1-.8-1.9-1.9-2.5-3-.5-1-.5-2.1 0-3.1Z" /><path d="m7.5 15.5 2-2" /><path d="m14.5 8.5 2-2" /><path d="M9 22v-3.5c0-.8.7-1.5 1.5-1.5h3c.8 0 1.5.7 1.5 1.5V22" /><path d="M7 22h10" /></svg>
 );
 const BlushIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M12 12s2-4 4-4 4 2 4 4-2 4-4 4-4-2-4-4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" /><path d="M12 12s2-4 4-4 4 2 4 4-2 4-4 4-4-2-4-4" /></svg>
 );
 const ConcealerIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22v-7.5c0-1.4-1.1-2.5-2.5-2.5h0c-1.4 0-2.5 1.1-2.5 2.5V22"/><path d="m12 14 5-5"/><path d="M12 14c-2.5-1-4.5-1-7 0"/><path d="M17 9c2.5 1 4.5 1 7 0"/><path d="M10 22h4"/><path d="m17 9-1.5-1.5a2.83 2.83 0 0 0-4 0L10 9"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22v-7.5c0-1.4-1.1-2.5-2.5-2.5h0c-1.4 0-2.5 1.1-2.5 2.5V22" /><path d="m12 14 5-5" /><path d="M12 14c-2.5-1-4.5-1-7 0" /><path d="M17 9c2.5 1 4.5 1 7 0" /><path d="M10 22h4" /><path d="m17 9-1.5-1.5a2.83 2.83 0 0 0-4 0L10 9" /></svg>
 );
 const EyelinerIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/><path d="M20.3 15.8c-1.2 1-2.9 1.5-4.8 1.5"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" /><circle cx="12" cy="12" r="3" /><path d="M20.3 15.8c-1.2 1-2.9 1.5-4.8 1.5" /></svg>
 );
 const MascaraIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.17 12.83a2.47 2.47 0 0 0-3.34-3.34l-2.17 2.17 3.34 3.34Z"/><path d="m14 7-8.5 8.5"/><path d="M12.5 8.5 7 14"/><path d="m11 10-1.5 1.5"/><path d="M18.5 4.5 14 9"/><path d="M9 13l-1.5 1.5"/><path d="M3 21c-1.42-.04-2.39-1.28-2-3 1.12-5.04 5.24-8.9 10-10 .47-.13 1-.03 1.3.3.3.3.4.77.3 1.25-2.25 1.22-9.3 9.3-10 10-.18.18-.4.3-.6.4Z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21.17 12.83a2.47 2.47 0 0 0-3.34-3.34l-2.17 2.17 3.34 3.34Z" /><path d="m14 7-8.5 8.5" /><path d="M12.5 8.5 7 14" /><path d="m11 10-1.5 1.5" /><path d="M18.5 4.5 14 9" /><path d="M9 13l-1.5 1.5" /><path d="M3 21c-1.42-.04-2.39-1.28-2-3 1.12-5.04 5.24-8.9 10-10 .47-.13 1-.03 1.3.3.3.3.4.77.3 1.25-2.25 1.22-9.3 9.3-10 10-.18.18-.4.3-.6.4Z" /></svg>
 );
 const SkirtIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 13c0-2.2 1.8-4 4-4h8c2.2 0 4 1.8 4 4v6h-4v-4h-4v4H4v-6Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 13c0-2.2 1.8-4 4-4h8c2.2 0 4 1.8 4 4v6h-4v-4h-4v4H4v-6Z" /></svg>
 );
 
 export const categories: { name: string; hint: string; icon: LucideIcon | React.ComponentType, image: string }[] = [
