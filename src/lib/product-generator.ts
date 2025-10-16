@@ -26,7 +26,7 @@ export const realImageUrls: string[] = [
 ];
 
 const FoundationIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l-4.37-4.37a2 2 0 0 1 0-2.82L4.8 1.21a2 2 0 0 1 2.82 0L9 2.4l1.59-1.59a2 2 0 0 1 2.82 0l1.18 1.18a2 2 0 0 1 0 2.82zM11 10.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM14 7l-1.5 1.5-1.12-1.12a2 2 0 0 0-2.83 0L7 9l-1.5 1.5" /><path d="M12 22v-5" /><path d="M8.5 17h7" /><path d="M12 17a5 5 0 0 0-5 5v0h10v0a5 5 0 0 0-5-5z" /></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18.37 2.63 14 7l-1.59-1.59a2 2 0 0 0-2.82 0L8 7l-4.37-4.37a2 2 0 0 1 0-2.82L4.8 1.21a2 2 0 0 1 2.82 0L9 2.4l1.59-1.59a2 2 0 0 1 2.82 0l1.18 1.18a2 2 0 0 1 0 2.82zM11 10.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM14 7l-1.5 1.5-1.12-1.12a2 2 0 0 0-2.83 0L7 9l-1.5 1.5" /><path d="M12 22v-5" /><path d="M8.5 17h7" /><path d="M12 17a5 5 0 0 0-5 5v0h10v0a5 5 0 0 0-5-5z" /></svg>
 );
 const LipstickIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8.5 10.5c.6-1.1 1.5-2.2 2.5-3 .9-.7 2-.7 2.9 0 1 .8 1.9 1.9 2.5 3 .5 1 .5 2.1 0 3.1-.6 1.1-1.5 2.2-2.5 3-.9.7-2 .7-2.9 0-1-.8-1.9-1.9-2.5-3-.5-1-.5-2.1 0-3.1Z" /><path d="m7.5 15.5 2-2" /><path d="m14.5 8.5 2-2" /><path d="M9 22v-3.5c0-.8.7-1.5 1.5-1.5h3c.8 0 1.5.7 1.5 1.5V22" /><path d="M7 22h10" /></svg>
@@ -93,3 +93,5 @@ export const generateProducts = (category: typeof categories[0], count: number):
   }
   return products;
 };
+
+    
