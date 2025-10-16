@@ -70,7 +70,7 @@ export default function StatePage() {
             {pageTitle}
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Explore top-rated dispensaries for delivery and pickup in your area.
+            Explore top-rated companies and products
           </p>
         </section>
 
