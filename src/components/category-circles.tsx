@@ -1,7 +1,10 @@
 
+'use client';
+
 import Image from 'next/image';
 import type { Product } from '@/types/product';
 import { categories } from '@/lib/products';
+import { states } from '@/lib/states';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -15,6 +18,7 @@ export function CategoryCircles({}: CategoryCirclesProps) {
             <ul className="flex items-start gap-4 px-4 md:px-6 pb-4 pt-2">
                 {categories.map((category, i) => {
                     const Icon = category.icon;
+                    const randomState = states[Math.floor(Math.random() * states.length)];
                     return (
                     <motion.li 
                         key={category.name} 
@@ -30,7 +34,7 @@ export function CategoryCircles({}: CategoryCirclesProps) {
                         }}
                     >
                         <Link 
-                            href={`/menu/all#${category.name.toLowerCase().replace(/\\s/g, '-')}`}
+                            href={`/state/${encodeURIComponent(randomState.name)}`}
                             className="flex flex-col items-center space-y-2 w-28 group text-center focus:outline-none"
                         >
                            <div className="relative w-[98px] h-[98px] rounded-full liquid-glass">
