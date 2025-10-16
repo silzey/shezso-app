@@ -44,6 +44,7 @@ export function DispensaryProductsSheet({ isOpen, onOpenChange, dispensary }: Di
   const isFoundation = dispensary.state === 'Global';
   const productsToShow = isFoundation ? { 'Foundations': foundationProducts } : allProducts;
 
+  const productEntries = Object.entries(productsToShow || {});
 
   return (
       <>
@@ -66,13 +67,13 @@ export function DispensaryProductsSheet({ isOpen, onOpenChange, dispensary }: Di
         </SheetHeader>
         <ScrollArea className="flex-grow pt-[calc(18rem+env(safe-area-inset-top))]">
             <div className="space-y-12 p-4">
-                {Object.entries(productsToShow).map(([categoryName, products]) => (
+                {productEntries.map(([categoryName, products]) => (
                 <section key={categoryName}>
                     <h2 className="text-2xl font-bold tracking-tight mb-4 text-foreground">
                     {categoryName}
                     </h2>
                     <div className="grid grid-cols-2 gap-4">
-                    {products.map((product) => (
+                    {(products || []).map((product) => (
                         <ProductCard
                         key={product.id}
                         product={product}
