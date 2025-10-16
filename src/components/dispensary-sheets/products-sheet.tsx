@@ -9,7 +9,7 @@ import { ScrollArea } from '../ui/scroll-area';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { HeroSlider } from '../hero-slider';
 import { ProductCard } from '../product-card';
-import { allProducts } from '@/lib/products';
+import { allProducts, foundationProducts } from '@/lib/products';
 import { ProductDetailModal } from '../product-detail-modal';
 import { useState } from 'react';
 import type { Product } from '@/types/product';
@@ -40,6 +40,10 @@ export function DispensaryProductsSheet({ isOpen, onOpenChange, dispensary }: Di
     params.delete('sheet');
     router.push(pathname + '?' + params.toString());
   };
+  
+  const isFoundation = dispensary.state === 'Global';
+  const productsToShow = isFoundation ? { 'Foundations': foundationProducts } : allProducts;
+
 
   return (
       <>
@@ -62,7 +66,7 @@ export function DispensaryProductsSheet({ isOpen, onOpenChange, dispensary }: Di
         </SheetHeader>
         <ScrollArea className="flex-grow pt-[calc(18rem+env(safe-area-inset-top))]">
             <div className="space-y-12 p-4">
-                {Object.entries(allProducts).map(([categoryName, products]) => (
+                {Object.entries(productsToShow).map(([categoryName, products]) => (
                 <section key={categoryName}>
                     <h2 className="text-2xl font-bold tracking-tight mb-4 text-foreground">
                     {categoryName}
