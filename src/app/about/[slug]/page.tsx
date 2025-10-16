@@ -5,41 +5,47 @@ import { useParams, notFound } from 'next/navigation';
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { BottomNavBar } from "@/components/bottom-nav-bar";
-import { Leaf, MapPin, Percent, Search, Star } from "lucide-react";
+import { Brush, Star, Gift, PenSquare, HeartPulse, Megaphone } from "lucide-react";
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 const featuresData = [
     {
-        icon: MapPin,
-        title: "Find Local Dispensaries",
-        description: "With over 5,000 licensed dispensaries listed nationwide, our platform provides an intuitive map-based search to help you find the perfect spot in your area. Filter by services like delivery, in-store pickup, or curbside service, all while supporting local businesses that contribute over $1.8 billion in state tax revenue annually. View store hours, contact information, and navigate directly from the app.",
-        slug: "find-local-dispensaries"
-    },
-    {
-        icon: Search,
+        icon: Brush,
         title: "Explore Products",
-        description: "Dive into a comprehensive menu of over 25,000 cannabis products from more than 3,000 unique strains. From flower and pre-rolls to edibles and tinctures, you can browse detailed information including THC/CBD content, terpene profiles, effects, and flavors. Our search and filter options make it easy to find exactly what you're looking for among the 100+ known cannabinoids.",
+        description: "Dive into a vast catalog of the latest in beauty, fashion, and wellness. We feature products from established brands and emerging companies, giving you a comprehensive look at what's new and noteworthy.",
         slug: "explore-products"
     },
     {
-        icon: Percent,
-        title: "Discover Deals",
-        description: "Unlock an average savings of 25% on your purchases by browsing the latest promotions and discounts from your favorite dispensaries. We aggregate thousands of deals daily to help you save. Get instant notifications for flash sales and daily specials, ensuring you never miss an opportunity to get the best value.",
-        slug: "discover-deals"
-    },
-    {
         icon: Star,
-        title: "Read Real Reviews",
-        description: "Make confident choices with insights from our community of over 500,000 users. Read authentic reviews and ratings on products and dispensaries, with an average of 1,200 new reviews submitted daily. Share your own experiences to help others in the community make informed decisions and find the best cannabis for their needs.",
+        title: "True Testimonials & Reviews",
+        description: "Make confident decisions with authentic feedback. Our platform is built on trust, allowing users to leave honest reviews and share their true testimony about products they've tried.",
         slug: "read-real-reviews"
     },
     {
-        icon: Leaf,
-        title: "Learn About Cannabis",
-        description: "Whether you're new to cannabis or a seasoned connoisseur, our learning center is a valuable resource. Did you know the cannabis plant contains over 500 chemical compounds? Deepen your knowledge with educational guides on different strains, consumption methods, and the potential benefits of cannabinoids like THC and CBD. We're committed to promoting safe and responsible consumption.",
-        slug: "learn-about-cannabis"
+        icon: Gift,
+        title: "Giveaways & Deals",
+        description: "Who doesn't love freebies? We partner with brands to host exciting giveaways and provide exclusive deals. It's our way of thanking our amazing community.",
+        slug: "discover-deals"
+    },
+    {
+        icon: PenSquare,
+        title: "Creator Portal",
+        description: "Are you passionate about creating content? Join our creator portal to connect with brands, receive products for review, and grow your influence. We believe in the power of authentic voices.",
+        slug: "creator-portal"
+    },
+    {
+        icon: HeartPulse,
+        title: "Health & Wellness Hub",
+        description: "Beauty and fashion are more than skin deep. Explore our health and wellness section for content and products that help you feel as good as you look, promoting a balanced and healthy lifestyle.",
+        slug: "health-and-wellness"
+    },
+    {
+        icon: Megaphone,
+        title: "Advertise With Us",
+        description: "Get your products in front of a passionate and engaged audience. We offer advertising opportunities for both large and small companies, helping you connect with consumers who care.",
+        slug: "advertise-with-us"
     }
 ];
 

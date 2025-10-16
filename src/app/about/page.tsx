@@ -5,39 +5,45 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { BottomNavBar } from "@/components/bottom-nav-bar";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Leaf, MapPin, Percent, Search, Sparkles, Star } from "lucide-react";
+import { Brush, Star, Gift, PenSquare, HeartPulse, Megaphone } from "lucide-react";
 import Link from 'next/link';
 
 const features = [
     {
-        icon: MapPin,
-        title: "Find Local Dispensaries",
-        description: "Easily locate top-rated dispensaries near you for both delivery and in-store pickup.",
-        slug: "find-local-dispensaries"
-    },
-    {
-        icon: Search,
+        icon: Brush,
         title: "Explore Products",
-        description: "Browse a vast menu of flower, edibles, vapes, and concentrates with detailed descriptions.",
+        description: "View the latest in beauty, fashion, and wellness from brands large and small.",
         slug: "explore-products"
     },
     {
-        icon: Percent,
-        title: "Discover Deals",
-        description: "Never miss out on a promotion. Get access to exclusive deals and daily discounts.",
-        slug: "discover-deals"
-    },
-    {
         icon: Star,
-        title: "Read Real Reviews",
-        description: "Make informed decisions with authentic reviews from a community of fellow enthusiasts.",
+        title: "True Testimonials",
+        description: "Read authentic reviews from our community and share your own experiences.",
         slug: "read-real-reviews"
     },
     {
-        icon: Leaf,
-        title: "Learn About Cannabis",
-        description: "Deepen your knowledge with guides on strains, consumption methods, and benefits.",
-        slug: "learn-about-cannabis"
+        icon: Gift,
+        title: "Giveaways & Deals",
+        description: "Participate in exclusive giveaways and find unbeatable deals on top products.",
+        slug: "discover-deals"
+    },
+    {
+        icon: PenSquare,
+        title: "Creator Portal",
+        description: "Join our creator program, receive products, and share your honest reviews.",
+        slug: "creator-portal"
+    },
+    {
+        icon: HeartPulse,
+        title: "Health & Wellness",
+        description: "Discover content and products that promote a healthy and balanced lifestyle.",
+        slug: "health-and-wellness"
+    },
+    {
+        icon: Megaphone,
+        title: "Advertise With Us",
+        description: "Showcase your products to a dedicated audience. We welcome companies of all sizes.",
+        slug: "advertise-with-us"
     }
 ]
 
@@ -48,9 +54,9 @@ export default function AboutPage() {
         <Header />
         <main className="flex-grow container mx-auto px-4 py-8 pt-24 md:pt-12">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold font-cursive text-primary mb-4">About Shezso</h1>
+            <h1 className="text-4xl md:text-5xl font-bold font-cursive text-primary mb-4">Welcome to Shezso</h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-              Shezso is your trusted partner for discovering, exploring, and enjoying beauty products confidently. We connect you with local stores, the best products, and a community of enthusiasts.
+              Your trusted community for authentic reviews on beauty, fashion, and wellness. We connect users with the latest products, host exciting giveaways, and empower creators to share their true testimony.
             </p>
           </div>
 
