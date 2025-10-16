@@ -57,8 +57,8 @@ export const generateProducts = (category: { name: string; icon: React.Component
     const imageIndex = (category.name.length + i) % realImageUrls.length;
 
     products.push({
-      id: `${category.name.toLowerCase()}-${i}`,
-      name: `${category.name} Product ${i}`,
+      id: `${category.name.toLowerCase().replace(/\\s+/g, '-')}-${i}`,
+      name: `${productType} ${category.name.slice(0, -1)} ${i}`,
       category: category.name,
       type: productType,
       thc: thc,
