@@ -35,7 +35,7 @@ export function CategoryCircles({}: CategoryCirclesProps) {
                         >
                            <div className="relative w-[98px] h-[98px] rounded-full liquid-glass">
                                 <div className="absolute inset-0 rounded-full p-1 flex items-center justify-center">
-                                    <Icon />
+                                    <Icon className="h-12 w-12 text-primary" />
                                 </div>
                             </div>
                             <p className="text-xs font-medium text-foreground truncate w-full text-center">{category.name}</p>

@@ -62,6 +62,7 @@ export const generateProducts = (category: { name: string; icon: React.Component
       category: category.name,
       type: productType,
       thc: thc,
+      price: parseFloat((25 + Math.random() * 50).toFixed(2)),
       description: `This is a high-quality ${productType} ${category.name.toLowerCase()} with a THC content of ${thc}%. Perfect for both new and experienced users looking for a reliable and enjoyable experience.`,
       image: realImageUrls[imageIndex],
       hint: `${category.name.toLowerCase()} cannabis`,
