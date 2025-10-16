@@ -15,28 +15,28 @@ export function HeroSliderScript() {
 
     const sliderItems = [
       {
-        name: ['Blue', 'Dream'],
-        color: '#4A90E2',
-        image: 'https://images.pexels.com/photos/7773109/pexels-photo-7773109.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        data: ['24%', 'Sativa', 'Berry', 'Uplifting', '0.2%'],
+        name: ['Radiant', 'Glow'],
+        color: '#E29578',
+        image: 'https://images.pexels.com/photos/3762881/pexels-photo-3762881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        data: ['New', 'Foundation', 'Lightweight', 'All Day', 'Matte'],
       },
       {
-        name: ['OG', 'Kush'],
-        color: '#50E3C2',
-        image: 'https://images.pexels.com/photos/3676962/pexels-photo-3676962.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        data: ['22%', 'Hybrid', 'Earthy', 'Relaxing', '0.5%'],
+        name: ['Velvet', 'Lips'],
+        color: '#D88A8A',
+        image: 'https://images.pexels.com/photos/2533618/pexels-photo-2533618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        data: ['Best Seller', 'Lipstick', 'Hydrating', 'Vibrant', 'Cruelty-Free'],
       },
       {
-        name: ['Sour', 'Diesel'],
-        color: '#F5A623',
-        image: 'https://images.pexels.com/photos/8139676/pexels-photo-8139676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        data: ['26%', 'Sativa', 'Diesel', 'Energetic', '0.1%'],
+        name: ['Natural', 'Beauty'],
+        color: '#A4B494',
+        image: 'https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        data: ['Skincare', 'Serum', 'Organic', 'Nourishing', 'Vegan'],
       },
       {
-        name: ['Joint', 'Pack'],
-        color: '#8E44AD',
-        image: 'https://images.pexels.com/photos/8139067/pexels-photo-8139067.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        data: ['20%', 'Indica', 'Grape', 'Sleepy', '0.3%'],
+        name: ['Bold', 'Lashes'],
+        color: '#8C7A6B',
+        image: 'https://images.pexels.com/photos/2105453/pexels-photo-2105453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+        data: ['Volumizing', 'Mascara', 'Long-Lasting', 'No Clumps', 'Waterproof'],
       },
     ];
 
