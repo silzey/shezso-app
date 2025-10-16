@@ -3,7 +3,19 @@
 
 import { useEffect, useState } from 'react';
 
-export function HeroSliderScript() {
+export interface Slide {
+    name: [string, string];
+    color: string;
+    image: string;
+    data: string[];
+    dataLabels: string[];
+}
+
+interface HeroSliderScriptProps {
+    slides: Slide[];
+}
+
+export function HeroSliderScript({ slides }: HeroSliderScriptProps) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -13,32 +25,7 @@ export function HeroSliderScript() {
   useEffect(() => {
     if (!isMounted) return;
 
-    const sliderItems = [
-      {
-        name: ['Radiant', 'Glow'],
-        color: '#E29578',
-        image: 'https://images.pexels.com/photos/3762881/pexels-photo-3762881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        data: ['New', 'Foundation', 'Lightweight', 'All Day', 'Matte'],
-      },
-      {
-        name: ['Velvet', 'Lips'],
-        color: '#D88A8A',
-        image: 'https://images.pexels.com/photos/2533618/pexels-photo-2533618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        data: ['Best Seller', 'Lipstick', 'Hydrating', 'Vibrant', 'Cruelty-Free'],
-      },
-      {
-        name: ['Natural', 'Beauty'],
-        color: '#A4B494',
-        image: 'https://images.pexels.com/photos/3757942/pexels-photo-3757942.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        data: ['Skincare', 'Serum', 'Organic', 'Nourishing', 'Vegan'],
-      },
-      {
-        name: ['Bold', 'Lashes'],
-        color: '#8C7A6B',
-        image: 'https://images.pexels.com/photos/2105453/pexels-photo-2105453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-        data: ['Volumizing', 'Mascara', 'Long-Lasting', 'No Clumps', 'Waterproof'],
-      },
-    ];
+    const sliderItems = slides;
 
     let currentIndex = 0;
     let isAnimating = false;
@@ -49,6 +36,7 @@ export function HeroSliderScript() {
     const secondWord = document.querySelector('.second-word') as HTMLElement | null;
     const imageElement = document.querySelector('.product-image') as HTMLImageElement | null;
     const dataValues = document.querySelectorAll('.data-value');
+    const dataLabels = document.querySelectorAll('.data-label');
     const dots = document.querySelectorAll('.control-dot');
 
     if (!container || !overlay || !firstWord || !secondWord || !imageElement || dataValues.length === 0 || dots.length === 0) {
@@ -134,14 +122,18 @@ export function HeroSliderScript() {
         nextFrame();
     }
 
-    function animateDataValues(newValues: string[]) {
+    function animateDataValues(newValues: string[], newLabels: string[]) {
       dataValues.forEach((value, index) => {
         const v = value as HTMLElement;
+        const l = dataLabels[index] as HTMLElement;
         setTimeout(() => {
           v.style.opacity = '0';
+          l.style.opacity = '0';
           setTimeout(() => {
             v.textContent = newValues[index];
+            l.textContent = newLabels[index];
             v.style.opacity = '1';
+            l.style.opacity = '1';
           }, 150);
         }, index * 80);
       });
@@ -159,7 +151,7 @@ export function HeroSliderScript() {
 
       setTimeout(() => {
         morphWords(currentItem.name, newItem.name);
-        animateDataValues(newItem.data);
+        animateDataValues(newItem.data, newItem.dataLabels);
 
         setTimeout(() => {
           imageElement.src = newItem.image;
@@ -204,7 +196,7 @@ export function HeroSliderScript() {
         dot.removeEventListener('click', () => changeSlide(index));
       });
     };
-  }, [isMounted]);
+  }, [isMounted, slides]);
 
   return null;
 }

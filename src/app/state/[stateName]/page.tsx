@@ -16,6 +16,7 @@ import { ProductDetailModal } from '@/components/product-detail-modal';
 import type { Product } from '@/types/product';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { HeroSlider } from '@/components/hero-slider';
+import { FoundationHeroSlider } from '@/components/foundation-hero-slider';
 
 const beautyBrands: Omit<Dispensary, 'reviews'>[] = [
     "L'Oréal", "Estée Lauder", "Maybelline", "Lancôme", "MAC Cosmetics", "NARS", "Clinique", 
@@ -90,7 +91,7 @@ export default function StatePage() {
       <Header />
       <main className="flex-grow pt-24 pb-32">
         <header className="text-center mb-12 flex items-center justify-center p-4">
-          <HeroSlider />
+           {isFoundationPage ? <FoundationHeroSlider /> : <HeroSlider />}
         </header>
         <section className="py-12 text-center">
           <Store className="mx-auto h-12 w-12 text-primary" />
@@ -130,7 +131,7 @@ export default function StatePage() {
       />
        <ProductDetailModal
         isOpen={!!selectedProduct}
-        onOpenChange={(isOpen) => !isOpen && closeProductModal()}
+        onOpenChange={(isOpen) => !isOpen && closeModal()}
         product={selectedProduct ?? undefined}
       />
     </div>
