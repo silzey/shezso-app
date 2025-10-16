@@ -23,9 +23,8 @@ export function DispensaryCard({ dispensary, className, onDispensaryClick }: Dis
             "hover:transform hover:-translate-y-1 hover:shadow-2xl",
             className
         )}
-        onClick={() => onDispensaryClick(dispensary)}
     >
-      <CardHeader className="p-0">
+      <CardHeader className="p-0" onClick={() => onDispensaryClick(dispensary)}>
          <button className="w-full aspect-square md:aspect-square relative overflow-hidden rounded-t-[24px]">
             <Image
               src={dispensary.logo}
@@ -37,7 +36,7 @@ export function DispensaryCard({ dispensary, className, onDispensaryClick }: Dis
             />
         </button>
       </CardHeader>
-      <CardContent className="p-3 flex-grow">
+      <CardContent className="p-3 flex-grow" onClick={() => onDispensaryClick(dispensary)}>
         <CardTitle className="text-sm md:text-base font-semibold line-clamp-2">{dispensary.name}</CardTitle>
         <div className="flex items-center text-xs text-muted-foreground mt-1">
             <Star className="w-3 h-3 mr-1 text-yellow-500 fill-yellow-500" />
@@ -47,7 +46,7 @@ export function DispensaryCard({ dispensary, className, onDispensaryClick }: Dis
         </div>
       </CardContent>
       <CardFooter className="p-3 pt-0">
-        <Button size="sm" className="w-full">View</Button>
+        <Button size="sm" className="w-full liquid-glass" onClick={() => onDispensaryClick(dispensary)}>View</Button>
       </CardFooter>
     </Card>
   );
