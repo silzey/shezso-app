@@ -55,6 +55,8 @@ export default function StatePage() {
     setSelectedProduct(null);
   }
 
+  const pageTitle = stateName.toLowerCase() === 'hawaii' ? 'Foundation' : `Dispensaries in ${stateData.name}`;
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -65,7 +67,7 @@ export default function StatePage() {
         <section className="py-12 text-center">
           <Store className="mx-auto h-12 w-12 text-primary" />
           <h1 className="text-4xl md:text-5xl font-bold font-cursive mt-4 text-primary">
-            Dispensaries in {stateData.name}
+            {pageTitle}
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
             Explore top-rated dispensaries for delivery and pickup in your area.
@@ -106,5 +108,3 @@ export default function StatePage() {
     </div>
   );
 }
-
-    
