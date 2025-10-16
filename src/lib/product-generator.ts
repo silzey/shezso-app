@@ -93,5 +93,3 @@ export const generateProducts = (category: typeof categories[0], count: number):
   }
   return products;
 };
-
-    
