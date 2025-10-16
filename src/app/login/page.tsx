@@ -8,10 +8,14 @@ import { doc, setDoc } from 'firebase/firestore';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { Leaf, Github } from 'lucide-react';
+import { Leaf, Github, AlertTriangle } from 'lucide-react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import type { User as NewUser } from '@/types/user';
+import { Card } from '@/components/ui/card';
+import { firebaseConfig } from '@/firebase/config';
+
+const firebaseApiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
 
 const GoogleIcon = () => (
   <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
@@ -55,6 +59,22 @@ function AuthForm({
     </div>
   );
 }
+
+const FirebaseNotConfigured = () => (
+    <div className="flex flex-col min-h-screen">
+        <Header />
+        <main className="flex-grow flex items-center justify-center bg-muted p-4">
+            <Card className="max-w-md w-full p-6 text-center shadow-lg bg-card/80 backdrop-blur-sm">
+                <AlertTriangle className="mx-auto h-12 w-12 text-destructive mb-4" />
+                <h1 className="text-2xl font-bold text-destructive mb-2">Firebase Not Configured</h1>
+                <p className="text-muted-foreground">
+                    Authentication is currently disabled because the app is not connected to a Firebase project. Please ask me to "set up Firebase" to continue.
+                </p>
+            </Card>
+        </main>
+        <Footer />
+    </div>
+)
 
 export default function LoginPage() {
   const { user, isUserLoading } = useUser();
@@ -113,6 +133,10 @@ export default function LoginPage() {
         toast({ title: `${providerName.charAt(0).toUpperCase() + providerName.slice(1)} Sign In Failed`, description: e.message, variant: "destructive" });
       }
     }
+  }
+
+  if (!firebaseApiKey) {
+    return <FirebaseNotConfigured />;
   }
 
   if (isUserLoading || user) {
@@ -187,3 +211,5 @@ export default function LoginPage() {
     </div>
   );
 }
+
+    
