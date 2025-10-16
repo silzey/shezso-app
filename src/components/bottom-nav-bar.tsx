@@ -46,7 +46,7 @@ export function BottomNavBar() {
                   "flex flex-col items-center justify-center h-16 w-16 group focus:outline-none liquid-glass rounded-full"
                 )}
               >
-                <item.icon className="w-6 h-6 text-blue-600 group-hover:text-blue-500 dark:group-hover:text-blue-400" />
+                <item.icon className="w-6 h-6 text-white dark:text-blue-600 group-hover:text-white/80 dark:group-hover:text-blue-500" />
                 <span className="text-xs text-muted-foreground group-hover:text-blue-600 dark:group-hover:text-blue-500 sr-only">
                   {item.label}
                 </span>
