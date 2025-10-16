@@ -40,7 +40,7 @@ export function StateSearch() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
         </div>
-        <Button type="submit" size="lg" className="h-12 text-lg rounded-full w-full sm:w-auto">
+        <Button type="submit" size="lg" className="h-12 text-lg rounded-full w-full sm:w-auto liquid-glass">
             <Search className="mr-2 h-5 w-5" />
             Search
         </Button>
