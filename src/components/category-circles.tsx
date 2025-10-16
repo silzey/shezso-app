@@ -18,7 +18,14 @@ export function CategoryCircles({}: CategoryCirclesProps) {
             <ul className="flex items-start gap-4 px-4 md:px-6 pb-4 pt-2">
                 {categories.map((category, i) => {
                     const Icon = category.icon;
-                    const randomState = states[Math.floor(Math.random() * states.length)];
+                    let href = '';
+                    if (category.name === 'Foundation') {
+                        href = '/state/Hawaii';
+                    } else {
+                        const randomState = states[Math.floor(Math.random() * states.length)];
+                        href = `/state/${encodeURIComponent(randomState.name)}`;
+                    }
+
                     return (
                     <motion.li 
                         key={category.name} 
@@ -34,7 +41,7 @@ export function CategoryCircles({}: CategoryCirclesProps) {
                         }}
                     >
                         <Link 
-                            href={`/state/${encodeURIComponent(randomState.name)}`}
+                            href={href}
                             className="flex flex-col items-center space-y-2 w-28 group text-center focus:outline-none"
                         >
                            <div className="relative w-[98px] h-[98px] rounded-full liquid-glass">
