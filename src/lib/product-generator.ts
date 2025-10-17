@@ -30,7 +30,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 import type { Product } from '@/types/product';
-import { LipstickIcon } from '@/app/lipstick/companies/page';
+import { LipstickIcon } from '@/components/ui/lipstick-icon';
 
 export const realImageUrls = [
   'https://images.pexels.com/photos/7667737/pexels-photo-7667737.jpeg?auto=compress&cs=tinysrgb&w=400',
