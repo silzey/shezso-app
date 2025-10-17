@@ -36,14 +36,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+     {
+      url: `${URL}/foundation/companies`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
   ] satisfies MetadataRoute.Sitemap;
 
-  const stateRoutes = states.map((state) => ({
-    url: `${URL}/state/${encodeURIComponent(state.name)}`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly',
-    priority: 0.9,
-  }) satisfies MetadataRoute.Sitemap[0]);
+  const stateRoutes = states
+    .filter(state => state.name.toLowerCase() !== 'hawaii') // Exclude Hawaii as it's handled by foundation
+    .map((state) => ({
+      url: `${URL}/state/${encodeURIComponent(state.name)}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+  }));
 
   const allDispensaries = dispensariesByState.flatMap(state => state.dispensaries);
   const dispensaryRoutes = allDispensaries.map((dispensary) => ({

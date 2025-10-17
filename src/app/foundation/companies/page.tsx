@@ -2,39 +2,47 @@
 'use client';
 
 import { useState } from 'react';
-import { useParams, notFound } from 'next/navigation';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { BottomNavBar } from '@/components/bottom-nav-bar';
 import { DispensaryCard } from '@/components/dispensary-card';
 import { DispensaryDetailSheet } from '@/components/dispensary-detail-sheet';
-import { dispensariesByState } from '@/lib/dispensaries';
-import { states } from '@/lib/states';
 import type { Dispensary } from '@/types/pos';
 import { Store } from 'lucide-react';
 import { ProductDetailModal } from '@/components/product-detail-modal';
 import type { Product } from '@/types/product';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { HeroSlider } from '@/components/hero-slider';
+import { FoundationHeroSlider } from '@/components/foundation-hero-slider';
 
-export default function StatePage() {
-  const params = useParams();
-  const router = useRouter();
-  const searchParams = useSearchParams();
+const beautyBrands: Omit<Dispensary, 'reviews'>[] = [
+    "L'Oréal", "Estée Lauder", "Maybelline", "Lancôme", "MAC Cosmetics", "NARS", "Clinique", 
+    "Bobbi Brown", "Too Faced", "Fenty Beauty", "Dior", "Chanel", "Giorgio Armani Beauty", "Revlon", 
+    "CoverGirl", "NYX", "Smashbox", "Benefit Cosmetics", "Hourglass", "Tarte", "Urban Decay", 
+    "BareMinerals", "KIKO Milano", "Shiseido", "Amorepacific", "The Body Shop", "Huda Beauty", 
+    "Charlotte Tilbury", "Pat McGrath Labs", "Ilia Beauty", "Kosé", "Pola Cosmetics", "P&G", 
+    "Avon", "Oriflame", "Farmasi", "Rimmel", "Max Factor", "Elizabeth Arden", "Nude by Nature", 
+    "Laura Mercier", "Bare Escentuals", "Milani", "Wet n Wild", "e.l.f. Cosmetics", 
+    "Physicians Formula", "Cover FX", "Dermablend", "Glossier"
+].map((name, i) => ({
+    id: `brand-${i}`,
+    name: name,
+    logo: `https://picsum.photos/seed/${name.replace(/[^a-zA-Z0-9]/g, '')}/400/400`,
+    hint: 'beauty brand logo',
+    rating: (4.2 + (i % 8) * 0.1).toFixed(1),
+    deliveryTime: 0,
+    address: 'Global Beauty Brand',
+    state: 'Global',
+    hours: '24/7 Online',
+    lat: 0,
+    lng: 0,
+}));
+
+
+export default function FoundationCompaniesPage() {
   const [selectedDispensary, setSelectedDispensary] = useState<Dispensary | null>(null);
   const [isDetailSheetOpen, setIsDetailSheetOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  const stateName = decodeURIComponent(params.stateName as string);
-  
-  const stateData = states.find(s => s.name.toLowerCase() === stateName.toLowerCase());
-  
-  if (!stateData) {
-    notFound();
-  }
-  
-  const displayData = dispensariesByState.find(s => s.stateName.toLowerCase() === stateName.toLowerCase())?.dispensaries || [];
-
+  const displayData = beautyBrands;
 
   const handleDispensaryClick = (dispensary: Dispensary) => {
     setSelectedDispensary(dispensary);
@@ -56,14 +64,14 @@ export default function StatePage() {
     setSelectedProduct(null);
   }
 
-  const pageTitle = `Dispensaries in ${stateData.name}`;
+  const pageTitle = 'Foundation';
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow pt-24 pb-32">
         <header className="text-center mb-12 flex items-center justify-center p-4">
-           <HeroSlider />
+           <FoundationHeroSlider />
         </header>
         <section className="py-12 text-center">
           <Store className="mx-auto h-12 w-12 text-primary" />
@@ -88,7 +96,7 @@ export default function StatePage() {
                 </div>
             ) : (
             <p className="col-span-full text-center text-muted-foreground">
-                No companies listed for this state yet.
+                No companies listed yet.
             </p>
             )}
         </section>

@@ -20,7 +20,7 @@ export function CategoryCircles({}: CategoryCirclesProps) {
                     const Icon = category.icon;
                     let href = '';
                     if (category.name === 'Foundation') {
-                        href = '/state/Hawaii';
+                        href = '/foundation/companies';
                     } else {
                         const randomState = states[Math.floor(Math.random() * states.length)];
                         href = `/state/${encodeURIComponent(randomState.name)}`;
