@@ -21,6 +21,8 @@ export function CategoryCircles({}: CategoryCirclesProps) {
                     let href = '';
                     if (category.name === 'Foundation') {
                         href = '/foundation/companies';
+                    } else if (category.name === 'Lipstick') {
+                        href = '/lipstick/companies';
                     } else {
                         const randomState = states[Math.floor(Math.random() * states.length)];
                         href = `/state/${encodeURIComponent(randomState.name)}`;
