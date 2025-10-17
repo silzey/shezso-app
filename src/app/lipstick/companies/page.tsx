@@ -43,7 +43,7 @@ const lipstickBrands: Omit<Dispensary, 'reviews'>[] = [
     "Mary Kay",
     "Avon",
     "Physicians Formula",
-    "Cover FX",
+    "ColourFX (Cover FX)",
     "The Lip Bar",
     "Beauty Bakerie",
     "Milk Makeup",
