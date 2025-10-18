@@ -111,7 +111,7 @@ export default function FoundationCompaniesPage() {
       />
        <ProductDetailModal
         isOpen={!!selectedProduct}
-        onOpenChange={(isOpen) => !isOpen && closeModal()}
+        onOpenChange={(isOpen) => !isOpen && closeProductModal()}
         product={selectedProduct ?? undefined}
       />
     </div>
