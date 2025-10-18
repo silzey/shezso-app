@@ -149,7 +149,7 @@ export default function LipstickCompaniesPage() {
       />
        <ProductDetailModal
         isOpen={!!selectedProduct}
-        onOpenChange={(isOpen) => !isOpen && closeModal()}
+        onOpenChange={(isOpen) => !isOpen && closeProductModal()}
         product={selectedProduct ?? undefined}
       />
     </div>
