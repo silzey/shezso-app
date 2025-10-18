@@ -3,12 +3,10 @@
 
 import { useState } from 'react';
 import type { Product } from '@/types/product';
-import { CartSheet } from '@/components/cart-sheet';
 import { allProducts } from '@/lib/products';
 import { ProductCard } from '@/components/product-card';
 import { ProductDetailModal } from '@/components/product-detail-modal';
 import { Store } from 'lucide-react';
-import { StateStoryReel } from './state-story-reel';
 
 interface PublicMenuProps {
   locationId: string;
