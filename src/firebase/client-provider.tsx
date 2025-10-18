@@ -31,22 +31,6 @@ export function FirebaseClientProvider({ children }: FirebaseClientProviderProps
     if (app) {
       const authInstance = getAuth(app);
       const firestoreInstance = getFirestore(app);
-      
-      // The emulator connection logic should also only run on the client.
-      if (process.env.NEXT_PUBLIC_EMULATOR_HOST) {
-        const host = process.env.NEXT_PUBLIC_EMULATOR_HOST;
-        // Check if already connected to avoid re-connecting on re-renders
-        if (!(authInstance as any).emulatorConfig) {
-            console.log(`Connecting to Firebase Auth Emulator on host: ${host}`);
-            const { connectAuthEmulator } = require("firebase/auth");
-            connectAuthEmulator(authInstance, `http://${host}:9099`, { disableWarnings: true });
-        }
-        if (!(firestoreInstance as any)._settings.host) {
-             console.log(`Connecting to Firebase Firestore Emulator on host: ${host}`);
-            const { connectFirestoreEmulator } = require("firebase/firestore");
-            connectFirestoreEmulator(firestoreInstance, host, 8080);
-        }
-      }
       return { firebaseApp: app, auth: authInstance, firestore: firestoreInstance };
     }
     return { firebaseApp: null, auth: null, firestore: null };
