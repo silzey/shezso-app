@@ -18,6 +18,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['var(--font-sans)'],
+        belleza: ['var(--font-belleza)'],
       },
       colors: {
         background: 'hsl(var(--background))',

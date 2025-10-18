@@ -1,34 +1,43 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-import { Inter } from "next/font/google";
+import { PT_Sans, Belleza } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { FirebaseClientProvider } from "@/firebase";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({
+const ptSans = PT_Sans({
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "700"],
   variable: "--font-sans",
 });
 
-const title = "Shezso | Local Cosmetics Finder & Beauty Deals";
+const belleza = Belleza({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+  variable: "--font-belleza",
+});
+
+const title = "Shezso | Your Ultimate Beauty & Cosmetics Marketplace";
 const description =
-  "Explore top-rated beauty brands and products in your area. Shezso is your ultimate cosmetics marketplace to find reviews, the latest info, and unbeatable deals.";
+  "Discover and review the latest in beauty. Shezso is your community-driven marketplace for authentic reviews, top brands, and exclusive deals on cosmetics and skincare.";
 const url = "https://dispensary-13773344-54196.web.app";
 
 export const metadata: Metadata = {
   title,
   description,
   keywords: [
-    "cosmetics finder",
-    "beauty delivery",
-    "local beauty stores",
-    "makeup reviews",
+    "cosmetics",
+    "beauty",
+    "makeup",
+    "skincare",
+    "reviews",
     "beauty deals",
     "cosmetics marketplace",
-    "skincare",
-    "makeup deals",
+    "shade finder",
   ],
   metadataBase: new URL(url),
   manifest: "/manifest.json",
@@ -42,7 +51,7 @@ export const metadata: Metadata = {
         url: '/favicon.png', // Relative URL to public folder
         width: 512,
         height: 512,
-        alt: "Shezso - Cosmetics Marketplace",
+        alt: "Shezso - Beauty Marketplace",
       },
     ],
     locale: "en_US",
@@ -68,7 +77,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn("antialiased", inter.variable)}>
+      <body className={cn("antialiased", ptSans.variable, belleza.variable)}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <FirebaseClientProvider>
               {children}
