@@ -68,7 +68,7 @@ const FirebaseNotConfigured = () => (
                 <AlertTriangle className="mx-auto h-12 w-12 text-destructive mb-4" />
                 <h1 className="text-2xl font-bold text-destructive mb-2">Firebase Not Configured</h1>
                 <p className="text-muted-foreground">
-                    Authentication is currently disabled because the app is not connected to a Firebase project. Please ask me to "set up Firebase" to continue.
+                    Authentication is currently disabled because the app is not connected to a Firebase project. Please add your Firebase project's environment variables to continue.
                 </p>
             </Card>
         </main>

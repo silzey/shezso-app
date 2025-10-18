@@ -12,20 +12,20 @@ interface FirebaseClientProviderProps {
   children: ReactNode;
 }
 
-// This function initializes Firebase services, but only on the client side.
+const isFirebaseConfigured = !!firebaseConfig.apiKey;
+
 function initializeFirebaseServices() {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && isFirebaseConfigured) {
         if (!getApps().length) {
             return initializeApp(firebaseConfig);
         } else {
             return getApp();
         }
     }
-    return null; // Return null on the server
+    return null;
 }
 
 export function FirebaseClientProvider({ children }: FirebaseClientProviderProps) {
-  // Use useMemo to ensure Firebase is initialized only once per client session.
   const { firebaseApp, auth, firestore } = useMemo(() => {
     const app = initializeFirebaseServices();
     if (app) {
