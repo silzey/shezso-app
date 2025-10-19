@@ -57,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
-  }));
+  })) satisfies MetadataRoute.Sitemap;
 
   const allDispensaries = dispensariesByState.flatMap(state => state.dispensaries);
   const dispensaryRoutes = allDispensaries.map((dispensary) => ({
