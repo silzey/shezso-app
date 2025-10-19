@@ -2,8 +2,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useUser, useFirestore, addDocumentNonBlocking, setDocumentNonBlocking } from '@/firebase';
-import { collection, query, where, getDocs, serverTimestamp, doc, arrayUnion } from 'firebase/firestore';
+import { useUser, useFirestore, setDocumentNonBlocking } from '@/firebase';
+import { collection, query, where, getDocs, serverTimestamp, doc, arrayUnion, addDoc } from 'firebase/firestore';
 import { useToast } from '@/hooks/use-toast';
 import type { UserProfile } from '@/types/pos';
 import { ChatDetailSheet } from './chat-detail-sheet';
