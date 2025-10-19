@@ -11,7 +11,7 @@ import {googleAI} from '@genkit-ai/googleai';
  */
 
 const ai = genkit({
-  plugins: [googleAI()],
+  plugins: [googleAI({apiKey: process.env.GEMINI_API_KEY})],
   model: process.env.GENKIT_MODEL || 'googleai/gemini-2.5-flash-preview',
 });
 
