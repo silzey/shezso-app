@@ -1,14 +1,15 @@
 
-name: Next.js CI
+name: Shezso CI/CD
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  build:
+  build_and_lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,3 +30,34 @@ jobs:
 
       - name: Build project
         run: npm run build
+
+  auto_commit:
+    runs-on: ubuntu-latest
+    # Only run this job on pushes to main, not on pull requests
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: build_and_lint
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # We need to fetch the full history to compare
+          fetch-depth: 0
+          # Use a token with write permissions
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'Firebase Studio AI'
+          git config --global user.email 'firebase-studio-ai@users.noreply.github.com'
+
+      - name: Commit and Push Changes
+        run: |
+          # Check for any changes (untracked, modified, etc.)
+          if ! git diff --quiet; then
+            git add .
+            git commit -m "Automated commit from Firebase Studio"
+            git push origin main
+          else
+            echo "No changes to commit."
+          fi
