@@ -68,7 +68,7 @@ const FirebaseNotConfigured = () => (
                 <AlertTriangle className="mx-auto h-12 w-12 text-destructive mb-4" />
                 <h1 className="text-2xl font-bold text-destructive mb-2">Firebase Not Configured</h1>
                 <p className="text-muted-foreground">
-                    Authentication is currently disabled because the app is not connected to a Firebase project. Please add your Firebase project's environment variables to continue.
+                    Authentication is currently disabled because the app is not connected to a Firebase project. Please add your Firebase project&apos;s environment variables to continue.
                 </p>
             </Card>
         </main>
@@ -175,7 +175,7 @@ export default function LoginPage() {
                 <Button type="button" onClick={() => handleProviderSignIn('google')} className="form-button-google"><GoogleIcon/> Sign in with Google</Button>
                 <Button type="button" onClick={() => handleProviderSignIn('github')} className="form-button-google"><Github className="mr-2 h-4 w-4"/> Sign in with GitHub</Button>
                 <p className="form-switch-text">
-                  Don't have an account?{' '}
+                  Don&apos;t have an account?{' '}
                   <button type="button" onClick={() => setIsFlipped(true)} className="form-switch-button">Sign Up</button>
                 </p>
               </AuthForm>

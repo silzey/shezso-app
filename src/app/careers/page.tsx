@@ -22,7 +22,7 @@ export default function CareersPage() {
             <section>
                 <h1 className="text-4xl md:text-5xl font-bold font-cursive text-primary mb-4">Join Our Team</h1>
                 <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
-                    We're always looking for passionate and talented people to join us on our mission.
+                    We&apos;re always looking for passionate and talented people to join us on our mission.
                 </p>
             </section>
             

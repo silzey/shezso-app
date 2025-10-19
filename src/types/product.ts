@@ -5,6 +5,7 @@ export interface Product {
   category: string;
   type?: 'Sativa' | 'Indica' | 'Hybrid';
   thc?: number;
+  price?: number;
   description: string;
   image: string;
   hint: string;

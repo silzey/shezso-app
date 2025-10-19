@@ -32,9 +32,6 @@ export function NewItemsSection({ onProductClick }: NewItemsSectionProps) {
       id: `deal-${deal.name.toLowerCase().replace(' ', '-')}`,
       name: deal.name,
       category: 'New',
-      type: 'Hybrid',
-      thc: 22,
-      price: 35.00,
       description: `An amazing deal on ${deal.name}! This popular item is on sale for a limited time. Grab it before it's gone.`,
       image: deal.image,
       hint: deal.hint,
@@ -46,7 +43,7 @@ export function NewItemsSection({ onProductClick }: NewItemsSectionProps) {
     <section id="new" className="py-8 md:py-12 bg-transparent">
       <div className="container mx-auto px-4 md:px-6">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center mb-12 text-primary">
-          What's New
+          What&apos;s New
         </h2>
       </div>
       <div className="overflow-x-auto no-scrollbar">

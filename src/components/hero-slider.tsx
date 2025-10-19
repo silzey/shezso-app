@@ -2,6 +2,7 @@
 'use client';
 
 import { HeroSliderScript, type Slide } from './ui/HeroSliderScript';
+import Image from 'next/image';
 
 const defaultSlides: Slide[] = [
   {
@@ -49,11 +50,14 @@ export function HeroSlider({ slides = defaultSlides }: HeroSliderProps) {
           <span className="word-part first-word">{initialSlide.name[0]}</span>
           <span className="word-part second-word">{initialSlide.name[1]}</span>
         </div>
-        <img
+        <Image
           className="product-image"
           src={initialSlide.image}
           alt="Beauty Product or Model"
           data-ai-hint="beauty fashion"
+          width={600}
+          height={400}
+          priority
         />
         <div className="data-panel">
           {initialSlide.data.map((value, index) => (

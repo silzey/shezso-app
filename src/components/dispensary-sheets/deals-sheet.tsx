@@ -49,7 +49,7 @@ export function DispensaryDealsSheet({ isOpen, onOpenChange, dispensary }: Dispe
           <div className="flex justify-between items-center w-full">
               <div className="flex-1"></div>
               <div className="flex-1 text-center">
-                  <SheetTitle className="text-primary">What's New</SheetTitle>
+                  <SheetTitle className="text-primary">What&apos;s New</SheetTitle>
                   <SheetDescription className="text-primary">{dispensary.name}</SheetDescription>
               </div>
               <div className="flex-1 flex justify-end">

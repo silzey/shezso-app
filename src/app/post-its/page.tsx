@@ -99,8 +99,8 @@ export default function PostItsPage() {
           ) : (
             <div className="text-center py-20 text-muted-foreground">
               <StickyNote className="mx-auto h-16 w-16 mb-4" />
-              <p className="text-lg">You haven't created any notes yet.</p>
-              <p>Click "Add Note" to get started!</p>
+              <p className="text-lg">You haven&apos;t created any notes yet.</p>
+              <p>Click &quot;Add Note&quot; to get started!</p>
             </div>
           )}
         </main>

@@ -63,26 +63,13 @@ function MarketplaceContent() {
     ? dispensariesByState.flatMap(s => s.dispensaries || [])
     : [];
 
-  const buildUrl = (params: URLSearchParams) => {
-    const qs = params.toString();
-    return qs ? `${pathname}?${qs}` : pathname;
-  };
-
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
-      return buildUrl(params);
-    },
-    [searchParams, pathname]
-  );
-
   const deleteQueryString = useCallback(
     (name: string | string[]) => {
       const params = new URLSearchParams(searchParams.toString());
       const names = Array.isArray(name) ? name : [name];
       names.forEach(n => params.delete(n));
-      return buildUrl(params);
+      const qs = params.toString();
+      return qs ? `${pathname}?${qs}` : pathname;
     },
     [searchParams, pathname]
   );

@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
@@ -197,7 +196,7 @@ const ChatList = ({ user, onChatClick }: { user: FirebaseUser, onChatClick: (cha
             <div className="h-full flex flex-col items-center justify-center text-red-500">
                 <MessageSquare className="h-12 w-12 mb-4" />
                 <p>No messages yet.</p>
-                <p className="text-sm">Start a conversation from a user's profile.</p>
+                <p className="text-sm">Start a conversation from a user&apos;s profile.</p>
             </div>
         );
     }
@@ -444,7 +443,7 @@ const ConnectionsSheet = ({ profile, initialTab, open, onOpenChange }: { profile
         <Sheet open={open} onOpenChange={onOpenChange}>
             <SheetContent side="right" className="w-full max-w-md p-0 flex flex-col bg-background/80 backdrop-blur-xl border-border/20">
                 <SheetHeader className="p-4 border-b">
-                    <SheetTitle>{profile.firstName}'s Connections</SheetTitle>
+                    <SheetTitle>{profile.firstName}&apos;s Connections</SheetTitle>
                 </SheetHeader>
                 <Tabs defaultValue={initialTab} className="w-full flex-1 flex flex-col">
                     <TabsList className="grid w-full grid-cols-2 rounded-none border-b">
