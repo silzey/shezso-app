@@ -6,7 +6,8 @@ import { Footer } from "@/components/footer";
 import { BottomNavBar } from "@/components/bottom-nav-bar";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Brush, Star, Gift, PenSquare, HeartPulse, Megaphone } from "lucide-react";
-import Link from 'next/link';
+import Link from git add .
+;
 
 const features = [
     {
