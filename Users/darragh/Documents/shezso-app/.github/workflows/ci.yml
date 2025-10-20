@@ -1,0 +1,61 @@
+
+name: Shezso CI/CD
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Commit message'
+        required: true
+        default: 'Automated commit from Firebase Studio'
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_and_lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint project
+        run: npm run lint
+
+      - name: Build project
+        run: npm run build
+
+  auto_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'Firebase Studio AI'
+          git config --global user.email 'firebase-studio-ai@users.noreply.github.com'
+
+      - name: Commit and Push Changes
+        run: |
+          git add .
+          if ! git diff --staged --quiet; then
+            git commit -m "${{ github.event.inputs.message || 'Automated commit from Firebase Studio' }}"
+            git push origin main
+          else
+            echo "No changes to commit."
+          fi
